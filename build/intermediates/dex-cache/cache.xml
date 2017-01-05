@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/milk/demo/WebView/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="aedea91247dc69dcda003a12975b9e96c1e7d73d">
+        <dex dex="/Users/milk/demo/WebView/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_bbf40f0b6f04a2f18b94f1b14f75ad586bda0216/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/milk/demo/WebView/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/Users/milk/demo/WebView/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_1b3fa075f15a2a2e2e64078a1229354af88753ad/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/milk/demo/WebView/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/Users/milk/demo/WebView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.3.0_3f73aecf8241f7660af8297be3d8baa59ddb84db/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/milk/Downloads/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/Users/milk/demo/WebView/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_78ce524253a79acc43b9860eebcdf2a887ee66ce/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/milk/demo/WebView/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/Users/milk/demo/WebView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_edfdaf7f16d4a8c0d7ebe8d3935f148491c95842/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/milk/demo/WebView/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/Users/milk/demo/WebView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.3.0_940c5df81278480aaf31a8b04bb76c764ab2b4a4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/milk/demo/WebView/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="21fbb8fec3e1c2165953c226d00b2fba37dd7d36">
+        <dex dex="/Users/milk/demo/WebView/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_9c0ac2eb9d42eaa56822675d26f7d6a9c1329d5c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/milk/demo/WebView/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/Users/milk/demo/WebView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.3.0_3e1228ee351134c43542b64ee2381dd30245e817/classes.dex" />
+    </item>
+
+</items>
