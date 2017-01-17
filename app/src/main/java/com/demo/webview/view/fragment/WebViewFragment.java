@@ -2,16 +2,20 @@ package com.demo.webview.view.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.webkit.DownloadListener;
 import android.webkit.MimeTypeMap;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 import com.demo.webview.R;
 import com.demo.webview.WebInterface;
+import com.demo.webview.WebResultsStorage;
 import com.demo.webview.bean.WebCall;
 import com.demo.webview.protocol.UriBean;
 import com.demo.webview.view.activity.BaseActivity;
@@ -26,6 +30,11 @@ import com.demo.webview.view.widget.CommonWebView;
 public class WebViewFragment extends BaseFragment implements WebInterface {
     private CommonWebView mWebView;
     private ProgressBar mProgressBar;
+    private String mUrl;
+    private String fromType;
+    private String referer;
+    private WebInterface mWebInterface;
+    private FragmentActivity mActivity;
 
     @Override
     protected int getRootId() {
@@ -34,6 +43,8 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
 
     @Override
     protected void iniView(View view) {
+        getActivity().getWindow().setFormat(PixelFormat.TRANSLUCENT);
+        WebResultsStorage.onCreate();
         mWebView = (CommonWebView) view.findViewById(R.id.web_view);
         mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         mWebView.setLongClickable(true);
@@ -43,13 +54,28 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
                 downFile(url, mimetype);
             }
         });
-
+        WebSettings settings = mWebView.getSettings();
+        settings.setUserAgentString("This is my app's demo");
+        settings.setGeolocationEnabled(true);
+        settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setAppCacheEnabled(true);
+        settings.setSupportZoom(true);
+        settings.setTextSize(WebSettings.TextSize.NORMAL);
+        String appCachePath = getActivity().getCacheDir().getAbsolutePath();
+        settings.setAppCachePath(appCachePath);
+        settings.setAllowFileAccess(true);
+        mActivity = getActivity();
+        mWebInterface = this;
     }
 
 
     @Override
     protected void initData(View view) {
-
+        Bundle mBunlde = getArguments();
+        mUrl = mBunlde.getString("url");
+        fromType = mBunlde.getString("fromType");
+        referer = mBunlde.getString("referer");
     }
 
     @Override
@@ -64,7 +90,7 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
 
     @Override
     public WebView getWebView() {
-        return null;
+        return mWebView;
     }
 
     @Override
@@ -79,7 +105,7 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
 
     @Override
     public BaseActivity getBaseActivity() {
-        return getBaseActivity();
+        return (BaseActivity) getActivity();
     }
 
     @Override
@@ -87,7 +113,10 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         return super.getActivity();
     }
 
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
     //工具类
 
     /**
