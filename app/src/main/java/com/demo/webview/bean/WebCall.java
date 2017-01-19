@@ -12,14 +12,14 @@ import java.util.Objects;
 
 public class WebCall {
     public String func;
-    public Objects[] args;
+    public Object[] args;
     public String ext;
     public String pre;
 
     public WebCall() {
     }
 
-    public WebCall setArgs(Objects[] args) {
+    public WebCall setArgs(Object[] args) {
         this.args = args;
         return this;
     }
