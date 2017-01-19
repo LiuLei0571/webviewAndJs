@@ -38,6 +38,9 @@ public class CommonWebView extends WebViewEx {
         }
     }
 
+    public void commonLoadUrl(String url) {
+        super.loadUrl(url);
+    }
 
     public void loadUrl(String url, boolean needAgent) {
         Map<String, String> head = new HashMap<>();

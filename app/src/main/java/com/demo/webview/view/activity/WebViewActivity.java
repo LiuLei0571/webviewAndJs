@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.demo.webview.R;
 import com.demo.webview.view.fragment.WebViewFragment;
 
-public class WebViewActivity extends BaseActivity {
+public class WebViewActivity extends BaseActivity implements WebViewFragment.OnReceivedTitleListener {
     public String url;
     private FrameLayout mFragmentLayout;
     private ImageView mImageView;
@@ -58,5 +58,10 @@ public class WebViewActivity extends BaseActivity {
 
     private void close() {
         finish();
+    }
+
+    @Override
+    public void setTitle(String title) {
+
     }
 }
