@@ -17,8 +17,8 @@ public class ProtocolBean {
     private String method;
     private String module;
     private boolean postMain = true;
-    private boolean needLogin;
-    private boolean checkParam;
+    private boolean needLogin = false;
+    private boolean checkParam = false;
 
     public static ProtocolBean buildProtocol(Class<? extends IProtocol> executeCls, String method) {
         ProtocolBean bean = new ProtocolBean();
@@ -57,8 +57,9 @@ public class ProtocolBean {
         return module;
     }
 
-    public void setModule(String module) {
+    public ProtocolBean module(String module) {
         this.module = module;
+        return this;
     }
 
     public boolean isPostMain() {

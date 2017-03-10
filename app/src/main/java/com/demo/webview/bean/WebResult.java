@@ -10,14 +10,14 @@ import java.util.Map;
  */
 
 public class WebResult<T> {
-    private static final int SUCCESS_CODE = 0;
-    private static final int ERROR_CODE_CALL_ERROR = -1000;
-    private static final int ERROR_CODE_MODULE_NOT_EXISITS = -999;
-    private static final int ERROR_CODE_MEHTOD_NOT_EXISTS = -998;
-    private static final int ERROR_CODE_ARG_EXCEPTION = -997;
-    private static final int ERROR_CODE_NOTLOGIN = -996;
-    private static final int ERROR_CODE_CANCEL = -995;
-    private static final int ERROR_CODE_OTHER = -1001;
+    public static final int SUCCESS_CODE = 0;
+    public static final int ERROR_CODE_CALL_ERROR = -1000;
+    public static final int ERROR_CODE_MODULE_NOT_EXISITS = -999;
+    public static final int ERROR_CODE_MEHTOD_NOT_EXISTS = -998;
+    public static final int ERROR_CODE_ARG_EXCEPTION = -997;
+    public static final int ERROR_CODE_NOTLOGIN = -996;
+    public static final int ERROR_CODE_CANCEL = -995;
+    public static final int ERROR_CODE_OTHER = -1001;
     private int code;
     private String msg;
     private T data;
@@ -88,6 +88,7 @@ public class WebResult<T> {
 
     public static WebResult<Map<String, Object>> success_result(Object result) {
         Map<String, Object> data = new HashMap<>();
+        data.put("result", result);
         return new WebResult<>(SUCCESS_CODE, null, data);
     }
 }

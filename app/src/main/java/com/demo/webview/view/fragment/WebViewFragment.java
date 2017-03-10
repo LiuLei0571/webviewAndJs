@@ -17,11 +17,14 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
+import com.demo.webview.MyUrlIntenterceper;
+import com.demo.webview.Protocols;
 import com.demo.webview.R;
 import com.demo.webview.WebInterface;
+import com.demo.webview.WebPlugin;
 import com.demo.webview.WebResultsStorage;
 import com.demo.webview.bean.WebCall;
-import com.demo.webview.protocol.UriBean;
+import com.demo.webview.protocol.param.UriBean;
 import com.demo.webview.view.activity.BaseActivity;
 import com.demo.webview.view.widget.CommonWebChromeClient;
 import com.demo.webview.view.widget.CommonWebView;
@@ -46,10 +49,15 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
     private FragmentActivity mActivity;
     private CommonWebChromeClient mWebChromeClient;
     private CommonWebViewClient mWebViewClient;
-    private Map<String, String> title_map = new HashMap<>();
-    private boolean isOnreceiverTitle = false;
+    private Map<String, String> title_map = new HashMap<>();//存放标题，key是URL，value是标题
+    private boolean isOnreceiverTitle = false; //是否触发
     private boolean isPaused = false;
-    private boolean isOnBack = false;
+    private boolean isOnBack = false;//是否是浏览器退回
+
+
+    //TODO
+    private WebPlugin mWebPlugin;
+    private MyUrlIntenterceper mMyUrlIntenterceper;
 
     @Override
     protected int getRootId() {
@@ -60,6 +68,8 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
     protected void iniView(View view) {
         getActivity().getWindow().setFormat(PixelFormat.TRANSLUCENT);
         WebResultsStorage.onCreate();
+        WebInterface webInterface = this;
+        mWebPlugin = new WebPlugin(webInterface, Protocols.jsProtocols);
         mWebView = (CommonWebView) view.findViewById(R.id.web_view);
         mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         mWebView.setLongClickable(true);
@@ -87,10 +97,10 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
 
     @Override
     protected void initData(View view) {
-        Bundle mBunlde = getArguments();
-        mUrl = mBunlde.getString("url");
-        fromType = mBunlde.getString("fromType");
-        referer = mBunlde.getString("referer");
+        Bundle mBundle = getArguments();
+        mUrl = mBundle.getString("url");
+        fromType = mBundle.getString("fromType");
+        referer = mBundle.getString("referer");
         mWebChromeClient = new CommonWebChromeClient(mActivity, mProgressBar) {
             @Override
             protected void injectJavascriptInterfaces() {

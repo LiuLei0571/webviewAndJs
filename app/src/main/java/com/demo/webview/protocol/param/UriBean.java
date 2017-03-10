@@ -1,4 +1,4 @@
-package com.demo.webview.protocol;
+package com.demo.webview.protocol.param;
 
 import com.demo.webview.bean.ProtocolBean;
 

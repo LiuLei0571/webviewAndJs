@@ -6,7 +6,7 @@ import android.webkit.JavascriptInterface;
 
 import com.demo.webview.bean.ProtocolBean;
 import com.demo.webview.parser.impl.JsonParser;
-import com.demo.webview.protocol.UriBean;
+import com.demo.webview.protocol.param.UriBean;
 import com.demo.webview.sechuduler.impl.WebSecheduler;
 
 /**

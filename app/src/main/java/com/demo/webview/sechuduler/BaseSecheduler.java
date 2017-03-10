@@ -10,7 +10,7 @@ import com.demo.webview.bean.ProtocolBean;
 import com.demo.webview.callback.ICallBack;
 import com.demo.webview.parser.IParamParser;
 import com.demo.webview.protocol.IProtocol;
-import com.demo.webview.protocol.UriBean;
+import com.demo.webview.protocol.param.UriBean;
 import com.demo.webview.util.ThreadHelper;
 import com.demo.webview.util.WebUtil;
 

@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.demo.at.LoginActivity"/>
+        <activity android:name="com.demo.at.MainActivity"/>
     </application>
 
 </manifest>

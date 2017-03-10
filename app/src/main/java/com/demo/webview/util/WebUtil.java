@@ -3,7 +3,7 @@ package com.demo.webview.util;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.demo.webview.protocol.UriBean;
+import com.demo.webview.protocol.param.UriBean;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

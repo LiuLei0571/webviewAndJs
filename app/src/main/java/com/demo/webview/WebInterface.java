@@ -3,7 +3,7 @@ package com.demo.webview;
 import android.webkit.WebView;
 
 import com.demo.webview.bean.WebCall;
-import com.demo.webview.protocol.UriBean;
+import com.demo.webview.protocol.param.UriBean;
 
 /**
  * 用途：
