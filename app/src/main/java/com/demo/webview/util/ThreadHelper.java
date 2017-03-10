@@ -26,7 +26,7 @@ public final class ThreadHelper {
                 try {
                     runnable.run();
                 } catch (Throwable throwable) {
-                    LogHelper.task().e(throwable);
+//                    LogHelper.task().e(throwable);
                 }
             }
         }, delayMillis);
