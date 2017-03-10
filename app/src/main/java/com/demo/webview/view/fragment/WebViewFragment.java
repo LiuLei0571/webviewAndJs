@@ -70,6 +70,7 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         WebResultsStorage.onCreate();
         WebInterface webInterface = this;
         mWebPlugin = new WebPlugin(webInterface, Protocols.jsProtocols);
+        mMyUrlIntenterceper = new MyUrlIntenterceper(webInterface, Protocols.urlIntercepter);
         mWebView = (CommonWebView) view.findViewById(R.id.web_view);
         mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         mWebView.setLongClickable(true);
@@ -172,6 +173,13 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         };
         mWebView.setWebChromeClient(mWebChromeClient);
         mWebView.setWebViewClient(mWebViewClient);
+        mWebView.addJavascriptInterface(mWebPlugin, "appJs");
+        mWebViewClient.setUrlIntercepter(mMyUrlIntenterceper);
+        if("outSide".equals(fromType)){
+            commonLoadUrl(mUrl);
+        }else {
+            loadUrl(mUrl,null);
+        }
     }
 
     public void loadUrl(String url, Map<String, String> head) {
@@ -204,6 +212,11 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         }
         isPaused = true;
         super.onPause();
+        if (isOnBack) {
+            callWeb(WebCall.newWebCall("axdBackFunc"));
+        }else {
+            isOnBack=true;
+        }
     }
 
     @Override
@@ -221,7 +234,11 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
 
     @Override
     public boolean callWeb(WebCall webCall) {
-        return false;
+        if (mWebView == null||webCall==null) {
+            return false;
+        }
+//        final String url= WebUtil.buildUriBean()
+        return true;
     }
 
     @Override
@@ -262,7 +279,7 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
     }
 
     public void getJsExecute(UriBean uriBean) {
-
+        mWebPlugin.doExecute(uriBean);
     }
 
     private OnReceivedTitleListener mListener;

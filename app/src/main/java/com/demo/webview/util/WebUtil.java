@@ -3,6 +3,7 @@ package com.demo.webview.util;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.demo.webview.bean.WebCall;
 import com.demo.webview.protocol.param.UriBean;
 
 import java.lang.reflect.ParameterizedType;
@@ -16,7 +17,11 @@ import java.lang.reflect.Type;
 
 public class WebUtil {
     private static final String URL_PRE = "axd://";
-
+    public static String buildJsUrl(WebCall webCall){
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("javascript:try{");
+        return stringBuilder.toString();
+    }
     /**
      * 调整url
      *

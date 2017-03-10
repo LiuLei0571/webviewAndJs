@@ -14,4 +14,7 @@ public interface Protocols {
     ProtocolBean[] jsProtocols = new ProtocolBean[]{
             login
     };
+    ProtocolBean[] urlIntercepter = new ProtocolBean[]{
+            login
+    };
 }
