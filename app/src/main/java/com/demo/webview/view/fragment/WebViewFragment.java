@@ -25,6 +25,8 @@ import com.demo.webview.WebPlugin;
 import com.demo.webview.WebResultsStorage;
 import com.demo.webview.bean.WebCall;
 import com.demo.webview.protocol.param.UriBean;
+import com.demo.webview.util.ThreadHelper;
+import com.demo.webview.util.WebUtil;
 import com.demo.webview.view.activity.BaseActivity;
 import com.demo.webview.view.widget.CommonWebChromeClient;
 import com.demo.webview.view.widget.CommonWebView;
@@ -175,10 +177,10 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         mWebView.setWebViewClient(mWebViewClient);
         mWebView.addJavascriptInterface(mWebPlugin, "appJs");
         mWebViewClient.setUrlIntercepter(mMyUrlIntenterceper);
-        if("outSide".equals(fromType)){
+        if ("outSide".equals(fromType)) {
             commonLoadUrl(mUrl);
-        }else {
-            loadUrl(mUrl,null);
+        } else {
+            loadUrl(mUrl, null);
         }
     }
 
@@ -214,8 +216,8 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         super.onPause();
         if (isOnBack) {
             callWeb(WebCall.newWebCall("axdBackFunc"));
-        }else {
-            isOnBack=true;
+        } else {
+            isOnBack = true;
         }
     }
 
@@ -234,10 +236,22 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
 
     @Override
     public boolean callWeb(WebCall webCall) {
-        if (mWebView == null||webCall==null) {
+        if (mWebView == null || webCall == null) {
             return false;
         }
-//        final String url= WebUtil.buildUriBean()
+        final String url = WebUtil.buildJsUrl(webCall);
+        if (url != null) {
+            if (ThreadHelper.inMainThread()) {
+                mWebView.commonLoadUrl(url);
+            } else {
+                ThreadHelper.postMain(new Runnable() {
+                    @Override
+                    public void run() {
+                        mWebView.commonLoadUrl(url);
+                    }
+                });
+            }
+        }
         return true;
     }
 

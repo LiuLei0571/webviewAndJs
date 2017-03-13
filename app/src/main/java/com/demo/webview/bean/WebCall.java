@@ -2,8 +2,6 @@ package com.demo.webview.bean;
 
 import android.util.Log;
 
-import java.util.Objects;
-
 /**
  * 用途：
  * Created by milk on 17/1/16.
@@ -34,7 +32,7 @@ public class WebCall {
         return this;
     }
 
-    public static WebCall newWebCall(String func, Objects... results) {
+    public static WebCall newWebCall(String func, Object... results) {
         WebCall webCall = null;
         if (func != null) {
             webCall = new WebCall();

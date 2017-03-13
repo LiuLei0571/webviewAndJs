@@ -3,6 +3,7 @@ package com.demo.webview.util;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.demo.webview.WebResultsStorage;
 import com.demo.webview.bean.WebCall;
 import com.demo.webview.protocol.param.UriBean;
 
@@ -17,11 +18,72 @@ import java.lang.reflect.Type;
 
 public class WebUtil {
     private static final String URL_PRE = "axd://";
-    public static String buildJsUrl(WebCall webCall){
-        StringBuilder stringBuilder=new StringBuilder();
+
+    public static String buildJsUrl(WebCall webCall) {
+        StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("javascript:try{");
+        stringBuilder.append(buildJs_(webCall, true));
         return stringBuilder.toString();
     }
+
+    private static String buildJs_(Object result, boolean needShortJs) {
+        StringBuilder stringBuilder = new StringBuilder();
+        if (result != null) {
+            if (result instanceof WebCall) {
+                WebCall webFunc = (WebCall) result;
+                if (webFunc.pre != null) {
+                    stringBuilder.append(webFunc.pre);
+                }
+                stringBuilder.append(webFunc.func);
+                Object[] args = webFunc.args;
+                stringBuilder.append('(');
+                if (args != null) {
+                    int j = 0;
+                    for (Object arg : args) {
+                        stringBuilder.append(buildJs_(arg, needShortJs));
+                        j++;
+                        if (j != args.length) {
+                            stringBuilder.append(Chars.COMMA);
+                        }
+                    }
+                }
+                stringBuilder.append(')');
+                if (webFunc.ext != null) {
+                    stringBuilder.append(webFunc.ext);
+                }
+            } else {
+                String content;
+                boolean needEval = false;
+                if (result instanceof String) {
+                    content = (String) result;
+                } else {
+                    content = JsonHelper.toJson(result);
+                    Class cls = result.getClass();
+                    if (!cls.isPrimitive()) {
+                        needEval = true;
+                    }
+                }
+                if (content.length() > Configs.MAX_H5_ARG_LENGTH && needShortJs) {
+                    String key = WebResultsStorage.put(content);
+                    WebCall webCall = WebCall.newWebCall(Configs.JS_INTERFACE_GETRESULT, key);
+                    if (needEval) {
+                        webCall.eval();
+                    }
+                    content = buildJs_(webCall, false);
+                    stringBuilder.append(content);
+                } else if (result instanceof String) {
+                    stringBuilder.append(Chars.SIGLE_QUOTE).append(content)
+                            .append(Chars.SIGLE_QUOTE);
+                } else {
+                    stringBuilder.append(content);
+                }
+            }
+        } else {
+            stringBuilder.append(Chars.SIGLE_QUOTE).append(Chars.SIGLE_QUOTE);
+        }
+        return stringBuilder.toString();
+    }
+
     /**
      * 调整url
      *
