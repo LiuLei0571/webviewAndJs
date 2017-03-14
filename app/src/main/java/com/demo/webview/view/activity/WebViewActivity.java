@@ -17,7 +17,7 @@ public class WebViewActivity extends BaseActivity implements WebViewFragment.OnR
 
     @Override
     protected int getRootId() {
-        return R.layout.activity_main;
+        return R.layout.activity_web;
     }
 
 
@@ -38,6 +38,7 @@ public class WebViewActivity extends BaseActivity implements WebViewFragment.OnR
     protected void initData(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             mWebViewFragment = new WebViewFragment();
+
             mWebViewFragment.setArguments(getIntent().getExtras());
             getSupportsFragmentManager().beginTransaction().replace(R.id.container, mWebViewFragment, WEB_TYPE).commit();
         } else {

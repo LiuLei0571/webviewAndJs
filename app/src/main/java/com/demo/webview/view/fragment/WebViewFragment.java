@@ -7,6 +7,7 @@ import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.webkit.DownloadListener;
 import android.webkit.JsPromptResult;
@@ -101,6 +102,7 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
     @Override
     protected void initData(View view) {
         Bundle mBundle = getArguments();
+
         mUrl = mBundle.getString("url");
         fromType = mBundle.getString("fromType");
         referer = mBundle.getString("referer");
@@ -241,6 +243,7 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         }
         final String url = WebUtil.buildJsUrl(webCall);
         if (url != null) {
+            Log.d("webFragmen call script %s",url );
             if (ThreadHelper.inMainThread()) {
                 mWebView.commonLoadUrl(url);
             } else {

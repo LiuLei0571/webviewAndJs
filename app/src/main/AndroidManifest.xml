@@ -13,7 +13,7 @@
         android:supportsRtl="true"
 
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.WebViewActivity">
+        <activity android:name="com.demo.at.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.demo.at.LoginActivity"/>
-        <activity android:name="com.demo.at.MainActivity"/>
+        <activity android:name=".view.activity.WebViewActivity"/>
+        <activity android:name=".view.activity.BaseActivity"/>
     </application>
 
 </manifest>
