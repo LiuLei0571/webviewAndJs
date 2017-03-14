@@ -26,6 +26,7 @@ import com.demo.webview.WebPlugin;
 import com.demo.webview.WebResultsStorage;
 import com.demo.webview.bean.WebCall;
 import com.demo.webview.protocol.param.UriBean;
+import com.demo.webview.util.Configs;
 import com.demo.webview.util.ThreadHelper;
 import com.demo.webview.util.WebUtil;
 import com.demo.webview.view.activity.BaseActivity;
@@ -177,7 +178,7 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         };
         mWebView.setWebChromeClient(mWebChromeClient);
         mWebView.setWebViewClient(mWebViewClient);
-        mWebView.addJavascriptInterface(mWebPlugin, "appJs");
+        mWebView.addJavascriptInterface(mWebPlugin, Configs.JS_INTERFACE);
         mWebViewClient.setUrlIntercepter(mMyUrlIntenterceper);
         if ("outSide".equals(fromType)) {
             commonLoadUrl(mUrl);
@@ -243,7 +244,7 @@ public class WebViewFragment extends BaseFragment implements WebInterface {
         }
         final String url = WebUtil.buildJsUrl(webCall);
         if (url != null) {
-            Log.d("webFragmen call script %s",url );
+            Log.d("webFragmen call script %s", url);
             if (ThreadHelper.inMainThread()) {
                 mWebView.commonLoadUrl(url);
             } else {

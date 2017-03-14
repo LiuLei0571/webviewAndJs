@@ -23,6 +23,7 @@
         <activity android:name="com.demo.at.LoginActivity"/>
         <activity android:name=".view.activity.WebViewActivity"/>
         <activity android:name=".view.activity.BaseActivity"/>
+        <activity android:name="com.demo.at.SignupActivity"/>
     </application>
 
 </manifest>

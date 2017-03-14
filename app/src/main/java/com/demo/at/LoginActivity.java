@@ -31,6 +31,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 mLoginListenter.successUser("admin","1234");
+                finish();
             }
         });
     }

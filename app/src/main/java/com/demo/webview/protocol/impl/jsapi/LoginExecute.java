@@ -24,7 +24,7 @@ public class LoginExecute extends BaseProtocolInstance<PhoneParam> {
             @Override
             public void successUser(String phone, String pwd) {
                 userMap.put("uid", phone);
-                userMap.put("pwd", phone);
+                userMap.put("pwd", pwd);
                 success(iCallBackm, userMap);
             }
 

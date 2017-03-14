@@ -32,7 +32,7 @@ public class ExecuteFactory {
     public IProtocol getExexuteInstance(ProtocolBean hybridExecuye) {
         Class<? extends IProtocol> executCls = hybridExecuye.getExecuteCls();
         IProtocol instance = instances.get(executCls);
-        if (instance != null) {
+        if (instance == null) {
             synchronized (ExecuteFactory.this) {
                 try {
                     instance = executCls.newInstance();

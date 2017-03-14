@@ -23,6 +23,7 @@ public class WebUtil {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("javascript:try{");
         stringBuilder.append(buildJs_(webCall, true));
+        stringBuilder.append(";}catch(e){e.error(e);};");
         return stringBuilder.toString();
     }
 

@@ -3,6 +3,7 @@ package com.demo.webview;
 import com.demo.webview.bean.ProtocolBean;
 
 import static com.demo.webview.constants.JsApiProtocols.login;
+import static com.demo.webview.constants.JsApiProtocols.signup;
 
 /**
  * 用途：
@@ -12,7 +13,7 @@ import static com.demo.webview.constants.JsApiProtocols.login;
 
 public interface Protocols {
     ProtocolBean[] jsProtocols = new ProtocolBean[]{
-            login
+            login,signup
     };
     ProtocolBean[] urlIntercepter = new ProtocolBean[]{
             login

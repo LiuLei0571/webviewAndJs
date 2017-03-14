@@ -49,6 +49,7 @@ public abstract class CommonWebViewClient extends WebViewEx.WebViewClientEx {
         super.onPageStarted(view, url, favicon);
         if (mProgressBar != null) {
             mProgressBar.setVisibility(View.VISIBLE);
+            mProgressBar.setProgress(0);
         }
 
     }
