@@ -3,6 +3,8 @@ package com.demo.webview;
 import com.demo.webview.bean.ProtocolBean;
 
 import static com.demo.webview.constants.JsApiProtocols.login;
+import static com.demo.webview.constants.JsApiProtocols.uploadPickImage;
+import static com.demo.webview.constants.JsApiProtocols.uploadWithTakePhoto;
 import static com.demo.webview.constants.UrlProtocols.signup;
 
 /**
@@ -13,7 +15,7 @@ import static com.demo.webview.constants.UrlProtocols.signup;
 
 public interface Protocols {
     ProtocolBean[] jsProtocols = new ProtocolBean[]{
-            login
+            login,uploadPickImage,uploadWithTakePhoto
     };
     ProtocolBean[] urlIntercepter = new ProtocolBean[]{
             signup

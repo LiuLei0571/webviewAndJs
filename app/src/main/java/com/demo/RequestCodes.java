@@ -8,4 +8,5 @@ package com.demo;
 
 public interface RequestCodes {
     int REQ_CAMERA=2;
+    int REQ_PICK=3;
 }
