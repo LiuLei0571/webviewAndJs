@@ -39,7 +39,7 @@ public class ProtocolBean {
         return defaultCallback;
     }
 
-    public ProtocolBean setDefaultCallback(String defaultCallback) {
+    public ProtocolBean callback(String defaultCallback) {
         this.defaultCallback = defaultCallback;
         return this;
     }

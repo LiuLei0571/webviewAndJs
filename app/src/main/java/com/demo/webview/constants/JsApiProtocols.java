@@ -12,5 +12,4 @@ import com.demo.webview.protocol.impl.jsapi.SignupExecute;
 
 public interface JsApiProtocols {
     ProtocolBean login = ProtocolBean.buildProtocol(LoginExecute.class, "login").module("user");
-    ProtocolBean signup = ProtocolBean.buildProtocol(SignupExecute.class, "signup").module("user");
 }

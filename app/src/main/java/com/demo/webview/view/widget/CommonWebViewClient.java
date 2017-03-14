@@ -35,8 +35,10 @@ public abstract class CommonWebViewClient extends WebViewEx.WebViewClientEx {
             return true;
         } else if (url.startsWith("http://") || url.startsWith("https://")) {
             ((CommonWebView) view).loadUrl(url, false);
+            return true;
+        } else {
+            return super.shouldOverrideUrlLoading(view, url);
         }
-        return super.shouldOverrideUrlLoading(view, url);
     }
 
     @Override

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    
+    <style type="text/css">
+      body{
+          font-size:8px;
+      }
+      button{
+          width:150px;
+          height:40px;
+          margin:5px auto;
+          font-size:1.0rem;
+          display: table-row;
+      }
+    </style>
+	<title>JS测试页面</title>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function loginCallback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+    function login() {
+        appJS.postMessage('user','login','{type:1}','loginCallback');
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+    function signup() {
+        appJS.postMessage("user","signup","{phone:13330757000}","callback");
+    }
+    
+	</script>
+	
+    <script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+    function callPhone() {
+        appJS.postMessage("tools","callPhone","{phone:13376823470}","callback");
+    }
+    
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+      function getInfo() {
+        appJS.postMessage("user","getInfo","","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+    function getVersion() {
+	    var nativeApp = (window.appJS) ? (window.appJS):(window.webkit.messageHandlers.appJS);
+        nativeApp.postMessage("appInfo","getVersion","","callback");
+    }
+	</script>
+  	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+    function getUUID() {
+        appJS.postMessage("device","getUUID","","callback");
+    }
+	</script>
+ 	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+       function getDeviceInfo() {
+        appJS.postMessage("device","getInfo","","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function getNetworkType() {
+        appJS.postMessage("device","getNetworkType","","callback");
+    }
+	</script>
+
+ 	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+      function share() {
+        appJS.postMessage("tools","share","{title:'test-title',info:'test-info',img:'http://picm.photophoto.cn/005/008/007/0080071498.jpg',url:'http://www.aixuedai.com'}","share_callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+      function shareSMS() {
+        appJS.postMessage("tools","shareSMS","{title:'test-title',info:'test-info',img:'http://picm.photophoto.cn/005/008/007/0080071498.jpg',url:'http://www.aixuedai.com'}","share_callback");
+    }
+	</script>
+
+  	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+    function getLocationInfo() {
+        appJS.postMessage("tools","getLocationInfo","","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+    function hudMessage() {
+        appJS.postMessage("tools","hudMessage","{msg:'成功提示'}","callback");
+    }
+	</script>
+  
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function hudError() {
+        appJS.postMessage("tools","hudError","{msg:'错误提示'}","callback");
+    }
+	</script>
+   <script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function hudLoading() {
+        appJS.postMessage("tools","hudLoading","{msg:'页面加载中',duration:10}","callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function scanOpenURL() {
+        appJS.postMessage("tools","scanOpenURL","","callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function scanQRCode() {
+        appJS.postMessage("tools","scanQRCode","","callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function scanBarCode() {
+        appJS.postMessage("tools","scanBarCode","","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function showCertification() {
+        appJS.postMessage("credit","showCertification","{callCode:1,callInfo:'温馨提示....',callbackUrl:'http://www.baidu.com',callbackFunc:'onFinsh'}","   callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function showCreditBase() {
+        appJS.postMessage("credit","showCreditBase","{callCode:1,callInfo:'温馨提示....',callbackUrl:'http://www.baidu.com',callbackFunc:'onFinsh'}","      callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function showCreditDIY() {
+        appJS.postMessage("credit","showCreditDIY","{callCode:1,callInfo:'温馨提示....',callbackUrl:'http://www.baidu.com',callbackFunc:'onFinsh'}","       callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function showCreditDIY3() {
+        appJS.postMessage("credit","showCreditDIY3","{callCode:1,callInfo:'温馨提示....',callbackUrl:'http://www.baidu.com',callbackFunc:'onFinsh'}","      callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function showCreditProgress() {
+        appJS.postMessage("credit","showCreditProgress","{progressType:'credit'}","callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function goURL() {
+        appJS.postMessage("navigation","goURL","{url:'http://www.baidu.com',isOutSiteUrl:false,loginFirst:true,closeToRoot:true,rootPage:1}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function sendSMS() {
+        appJS.postMessage("tools","sendSMS","{phone:'18667142506',msg:'短信内容balalala'}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function setPayPassword() {
+        appJS.postMessage("security","setPayPassword","","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function resetPayPassword() {
+        appJS.postMessage("security","resetPayPassword","","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function sessionSet() {
+        appJS.postMessage("storage","sessionSet","{a:1,b:2}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function sessionGet() {
+        appJS.postMessage("storage","sessionGet","{key:'a'}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function sessionContains() {
+        appJS.postMessage("storage","sessionContains","{key:'a'}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function sessionRemove() {
+        appJS.postMessage("storage","sessionRemove","{key:'a'}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function localSet() {
+        appJS.postMessage("storage","localSet","{c:3,d:4}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function localGet() {
+        appJS.postMessage("storage","localGet","{key:'c'}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function localContains() {
+        appJS.postMessage("storage","localContains","{key:'c'}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function localRemove() {
+        appJS.postMessage("storage","localRemove","{key:'c'}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function goBack() {
+        appJS.postMessage("webview","goBack","","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function refresh() {
+        appJS.postMessage("webview","refresh","{joinLoginInfo:true}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function closeWeb() {
+        appJS.postMessage("webview","close","{}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function setTitle() {
+        appJS.postMessage("webview","setTitle","{title:'JS测试页面'}","callback");
+    }
+	</script>
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+    
+     function configNavigationBar() {
+        appJS.postMessage("webview","configNavigationBar","{visible:true,color:'#ffc427',rightbutton:'close',shareInfo:{title:'title',info:'info',url:'http://www.baidu.com',img:'12345'}}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+
+     function holdClose() {
+        appJS.postMessage("webview","holdClose","{msg:'你确定要离开此页面?',cancelButton:'否',confirmButton:'是',closeAction:false}","callback");
+    }
+	</script>
+
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+
+     function delay() {
+	     appJS.postMessage("executor","delayExecute",'{delay:3,command:{module:"tools",method:"hudError",params:"{msg:123}",callback:"callback"}}',"callback");
+    }
+	</script>
+	
+	<script type="application/javascript">
+    function alertMessage(msg) {
+    	setTimeout (function () {
+    		alert(msg);
+    	}, 100);
+    }
+
+    function callback(result) {
+        var jsonString = JSON.stringify(result);
+        alertMessage(jsonString);
+    }
+
+     function batch() {
+	     appJS.postMessage("executor","batchExecute",'{commands:[{module:"device",method:"getInfo",params:"",callback:"callback"},{module:"device",method:"getUUID",params:"",callback:"callback"},{module:"device",method:"getNetworkType",params:"",callback:"callback"}]}',"callback");
+    }
+	</script>
+</head>
+<body>
+	<button type="button" onclick="login()">login</button>
+	<button type="button" onclick="signup()">signup</button>
+	<button type="button" onclick="getInfo()">getUserInfo</button>
+	<button type="button" onclick="getVersion()">getVersion</button>
+	<button type="button" onclick="getUUID()">getUUID</button>
+	<button type="button" onclick="getDeviceInfo()">getDeviceInfo</button>
+	<button type="button" onclick="getNetworkType()">getNetworkType</button>
+    <button type="button" onclick="callPhone()">callPhone</button>
+    <button type="button" onclick="share()">share</button>
+    <button type="button" onclick="shareSMS()">shareSMS</button>
+    <button type="button" onclick="getLocationInfo()">getLocationInfo</button>
+    <button type="button" onclick="hudMessage()">hudMessage</button>
+    <button type="button" onclick="hudError()">hudError</button>
+    <button type="button" onclick="hudLoading()">hudLoading</button>
+    <button type="button" onclick="scanOpenURL()">scanOpenURL</button>
+    <button type="button" onclick="scanQRCode()">scanQRCode</button>
+    <button type="button" onclick="scanBarCode()">scanBarCode</button>
+    <button type="button" onclick="showCertification()">showCertification</button>
+	<button type="button" onclick="showCreditBase()">showCreditBase</button>
+	<button type="button" onclick="showCreditDIY()">showCreditDIY</button>
+	<button type="button" onclick="showCreditDIY3()">showCreditDIY3</button>
+	<button type="button" onclick="showCreditProgress()">showCreditProgress</button>
+	<button type="button" onclick="goURL()">goURL</button>
+	<button type="button" onclick="setPayPassword()">setPayPassword</button>
+	<button type="button" onclick="resetPayPassword()">resetPayPassword</button>
+	<button type="button" onclick="sessionContains()">sessionContains</button>
+	<button type="button" onclick="sessionSet()">sessionSet</button>
+	<button type="button" onclick="sessionGet()">sessionGet</button>
+	<button type="button" onclick="sessionRemove()">sessionRemove</button>
+	<button type="button" onclick="localContains()">localContains</button>
+	<button type="button" onclick="localSet()">localSet</button>
+	<button type="button" onclick="localGet()">localGet</button>
+	<button type="button" onclick="localRemove()">localRemove</button>
+	<button type="button" onclick="goBack()">goBack</button>
+	<button type="button" onclick="refresh()">refresh</button>
+	<button type="button" onclick="closeWeb()">close</button>
+	<button type="button" onclick="setTitle()">setTitle</button>
+	<button type="button" onclick="configNavigationBar()">configNavigationBar</button>
+	<button type="button" onclick="holdClose()">holdClose</button>
+	<button type="button" onclick="delay()">delayExecute</button>
+	<button type="button" onclick="batch()">batchExecute</button>
+</body>
+</html>
