@@ -15,13 +15,13 @@ import com.demo.webview.callback.ICallBack;
 
 public abstract class BaseProtocolInstance<P> implements IProtocol<P> {
     @Override
-    public void doExecute(IAct iAct, ICallBack iCallBackm, P params) {
+    public void doExecute(IAct iAct, ICallBack iCallBack, P params) {
         if (iAct instanceof WebInterface) {
-            doExecute((WebInterface) iAct, iCallBackm, params);
+            doExecute((WebInterface) iAct, iCallBack, params);
         }
     }
 
-    public void doExecute(WebInterface iAct, ICallBack iCallBackm, P params) {
+    public void doExecute(WebInterface iAct, ICallBack iCallBack, P params) {
     }
 
     @Override
@@ -55,8 +55,12 @@ public abstract class BaseProtocolInstance<P> implements IProtocol<P> {
         return null;
     }
 
-    protected Object success_result(ICallBack iCallBack) {
+    protected Object success(ICallBack iCallBack ) {
         callWeb(iCallBack, WebResult.success_result(null));
+        return null;
+    }
+    protected Object success_result(ICallBack iCallBack) {
+        callWeb(iCallBack, WebResult.success(null));
         return null;
     }
 

@@ -165,4 +165,8 @@ public class WebUtil {
         }
         return null;
     }
+
+    public static String refresh(String reloadUrl) {
+        return null;
+    }
 }

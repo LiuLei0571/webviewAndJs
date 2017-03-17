@@ -91,4 +91,8 @@ public class WebResult<T> {
         data.put("result", result);
         return new WebResult<>(SUCCESS_CODE, null, data);
     }
+
+    public static <T> WebResult<T> success(T data) {
+        return  new WebResult<>(SUCCESS_CODE,null,data);
+    }
 }
