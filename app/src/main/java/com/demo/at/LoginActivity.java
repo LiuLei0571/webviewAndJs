@@ -30,8 +30,13 @@ public class LoginActivity extends BaseActivity {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLoginListenter.successUser("admin","1234");
-                finish();
+                if (mLoginListenter != null) {
+                    mLoginListenter.successUser("admin","1234");
+                    finish();
+                }else {
+                }
+
+
             }
         });
     }

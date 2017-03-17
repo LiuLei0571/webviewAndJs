@@ -1,7 +1,7 @@
 package com.demo.webview.protocol.impl.jsapi;
 
 import com.demo.at.LoginActivity;
-import com.demo.webview.WebInterface;
+import com.demo.webview.IAct;
 import com.demo.webview.callback.ICallBack;
 import com.demo.webview.protocol.BaseProtocolInstance;
 import com.demo.webview.protocol.param.PhoneParam;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class LoginExecute extends BaseProtocolInstance<PhoneParam> {
     @Override
-    public void doExecute(WebInterface iAct, final ICallBack iCallBackm, PhoneParam params) {
+    public void doExecute(IAct iAct, final ICallBack iCallBackm, PhoneParam params) {
         super.doExecute(iAct, iCallBackm, params);
         final Map<String, String> userMap = new HashMap<>();
         LoginActivity.getInstace(iAct, new LoginActivity.LoginListenter() {

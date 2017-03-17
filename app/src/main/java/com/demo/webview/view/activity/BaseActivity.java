@@ -1,9 +1,12 @@
 package com.demo.webview.view.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+
+import com.demo.webview.IAct;
 
 /**
  * 用途：
@@ -11,7 +14,7 @@ import android.support.v4.app.FragmentManager;
  * 邮箱：649444395@qq.com
  */
 
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity implements IAct {
     protected BaseActivity mBaseActivity;
 
     @Override
@@ -34,5 +37,18 @@ public abstract class BaseActivity extends FragmentActivity {
     protected abstract int getRootId();
     protected abstract void initView(Bundle savedInstanceState);
     protected abstract void initData(Bundle savedInstanceState);
+    @Override
+    public Context getContext() {
+        return getContext();
+    }
 
+    @Override
+    public Activity getActivity() {
+        return this;
+    }
+
+    @Override
+    public BaseActivity getBaseActivity() {
+        return this;
+    }
 }

@@ -2,6 +2,7 @@ package com.demo.webview.constants;
 
 import com.demo.webview.bean.ProtocolBean;
 import com.demo.webview.protocol.impl.jsapi.SignupExecute;
+import com.demo.webview.protocol.impl.jsapi.home.HomeExecute;
 
 /**
  * 用途：
@@ -11,4 +12,5 @@ import com.demo.webview.protocol.impl.jsapi.SignupExecute;
 
 public interface UrlProtocols {
     ProtocolBean signup = ProtocolBean.buildProtocol(SignupExecute.class, "signup").callback("onAxdSinup");
+    ProtocolBean homes=ProtocolBean.buildProtocol(HomeExecute.class,"go").module("home");
 }

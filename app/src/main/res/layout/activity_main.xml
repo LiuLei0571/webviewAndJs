@@ -16,4 +16,10 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:text="Url协议测试"/>
+
+    <Button
+        android:id="@+id/btn_action"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="Action服务端协议测试"/>
 </LinearLayout>

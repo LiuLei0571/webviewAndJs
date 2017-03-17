@@ -119,7 +119,7 @@ public class WebUtil {
     }
 
     public static boolean isNormalUrl(String url) {
-        if (url.startsWith("http://") || url.startsWith("https://")) {
+        if (url.startsWith("http://") || url.startsWith("https://")||url.startsWith("file:///")) {
             return true;
         }
         return false;
